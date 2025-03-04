@@ -27,6 +27,10 @@ async function run() {
     // );
     const usersCollection = client.db("gymDB").collection("users");
 
+    app.get("/", (req, res) => {
+      res.send("My-Gym Server Home");
+    });    
+
     app.get("/gym", async (req, res) => {
       const { searchParams } = req.query;
 
@@ -99,10 +103,6 @@ async function run() {
   }
 }
 run();
-
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
 
 app.listen(port, () => {
   console.log("Server Listening Port", port);
